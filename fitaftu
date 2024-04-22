@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [ "$1" == "today" ]; then
+
+    TARGET=~/.fitaftu/log/$(date +'%Y-%m-%d').fitaftu
+
+    if [ ! -f "$TARGET" ]; then
+        cp res/workout_templates/run.fitaftu $TARGET
+    fi
+
+    vim $TARGET
+
+elif [[ "$#" -eq 2 && "$1" == "edit" ]]; then
+
+    TARGET=~/.fitaftu/log/$2.fitaftu
+
+    if [ ! -f "$TARGET" ]; then
+        cp res/workout_templates/run.fitaftu $TARGET
+    fi
+
+    vim $TARGET
+
+
+elif [ "$1" == "shell" ]; then
+
+    node main.js
+
+
+elif [[ "$#" -eq 0 || "$1" == "--help" ]]; then
+
+    cat res/help_page.txt
+
+else
+
+    echo "fitaftu: invalid option -- '$1'"
+    echo 
+    cat res/help_page.txt
+
+fi

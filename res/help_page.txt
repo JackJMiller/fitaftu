@@ -1,0 +1,5 @@
+USAGE:
+  fitaftu edit <DATE>       edit workout file for specified date
+  fitaftu today             edit today's workout file
+  fitaftu shell             open interactive shell
+  fitaftu --help            display this help page
